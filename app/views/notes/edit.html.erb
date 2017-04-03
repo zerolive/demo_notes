@@ -1,0 +1,7 @@
+<h1>Edit note</h1>
+
+<%= form_for @note, url: notes_update_path(@note) do |f| %>
+	<%= f.label :text %>
+	<%= f.text_field :text %>
+	<%= f.submit :submit %>
+<% end %>
