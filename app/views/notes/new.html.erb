@@ -1,0 +1,7 @@
+<h1>Create note</h1>
+<br>
+<%= form_tag notes_create_path do %>
+	<%= label_tag :text %>
+	<%= text_field_tag :text %>
+	<%= submit_tag :submit %>
+<% end %>
