@@ -26,4 +26,14 @@ describe 'Notes' do
 
     expect(page).to have_content('test note edited')
   end
+
+  it 'delete notes' do
+    note = Note.new(text: 'test note')
+    note.save
+
+    visit '/notes/list'
+    click_on('delete')
+
+    expect(page).not_to have_content('test note')    
+  end
 end
