@@ -20,8 +20,7 @@ class NotesController < ApplicationController
   end
 
   def update
-    @note.text = params[:note][:text]
-    @note.save
+    @note.update!(note_params)
 
     redirect_to notes_list_path
   end
@@ -39,5 +38,9 @@ class NotesController < ApplicationController
 
   def find_note
     @note = Note.find(note_id)
+  end
+
+  def note_params
+    params.require(:note).permit(:text)
   end
 end
