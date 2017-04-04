@@ -1,4 +1,7 @@
 class NotesController < ApplicationController
+
+  before_action :find_note, only: [:edit, :update, :delete]
+
   def new
   end
 
@@ -14,20 +17,27 @@ class NotesController < ApplicationController
   end
 
   def edit
-    @note = Note.find(params[:id])
   end
 
   def update
-    note = Note.find(params[:id])
-    note.text = params[:note][:text]
-    note.save
+    @note.text = params[:note][:text]
+    @note.save
 
     redirect_to notes_list_path
   end
 
   def delete
-    note = Note.find(params[:id])
-    note.delete
+    @note.delete
     redirect_to notes_list_path
+  end
+
+  private
+
+  def note_id
+    params[:id]
+  end
+
+  def find_note
+    @note = Note.find(note_id)
   end
 end
