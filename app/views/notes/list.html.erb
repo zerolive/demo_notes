@@ -1,5 +1,7 @@
 <h1>Notes</h1>
-<br>
+
+<p><%= link_to 'Create note', notes_new_path %></p>
+
 <% @notes.each do |note| %>
 	<p>
 		<%= note.text %> - 
