@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'notes#list'
+
   get '/notes/new' => 'notes#new'
   post '/notes/create' => 'notes#create'
 
